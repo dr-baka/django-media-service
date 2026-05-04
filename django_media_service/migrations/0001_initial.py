@@ -1,0 +1,10 @@
+from django.conf import settings
+from django.db import migrations, models
+import django.db.models.deletion
+import uuid
+
+
+class Migration(migrations.Migration):
+    initial = True
+    dependencies = [migrations.swappable_dependency(settings.AUTH_USER_MODEL)]
+    operations = [migrations.CreateModel(name='MediaAsset', fields=[('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)), ('original_filename', models.CharField(max_length=255)), ('file_key', models.CharField(max_length=1024)), ('bucket_name', models.CharField(max_length=255)), ('mime_type', models.CharField(max_length=255)), ('extension', models.CharField(blank=True, max_length=32)), ('file_size', models.BigIntegerField()), ('media_type', models.CharField(choices=[('image', 'Image'), ('video', 'Video'), ('audio', 'Audio'), ('document', 'Document'), ('other', 'Other')], default='other', max_length=20)), ('is_private', models.BooleanField(default=True)), ('width', models.IntegerField(blank=True, null=True)), ('height', models.IntegerField(blank=True, null=True)), ('duration', models.FloatField(blank=True, null=True)), ('thumbnail_enabled', models.BooleanField(default=False)), ('thumbnail_status', models.CharField(choices=[('disabled', 'Disabled'), ('pending', 'Pending'), ('processing', 'Processing'), ('ready', 'Ready'), ('failed', 'Failed')], default='disabled', max_length=20)), ('thumbnail_data', models.JSONField(blank=True, default=dict)), ('hls_enabled', models.BooleanField(default=False)), ('hls_status', models.CharField(choices=[('disabled', 'Disabled'), ('pending', 'Pending'), ('processing', 'Processing'), ('ready', 'Ready'), ('failed', 'Failed')], default='disabled', max_length=20)), ('hls_data', models.JSONField(blank=True, default=dict)), ('processing_error', models.TextField(blank=True)), ('created_at', models.DateTimeField(auto_now_add=True)), ('updated_at', models.DateTimeField(auto_now=True)), ('owner', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL))], options={'ordering': ['-created_at']})]
