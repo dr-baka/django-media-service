@@ -11,10 +11,11 @@ DEFAULTS = {
         "ALLOWED_MIME_TYPES": ["*"],
     },
     "STORAGE": {
-        "BACKEND": "minio",
+        "BACKEND": "rustfs",
         "ENDPOINT": "localhost:9000",
         "ACCESS_KEY": "minioadmin",
         "SECRET_KEY": "minioadmin",
+        "REGION_NAME": None,
         "BUCKET_NAME": "media",
         "USE_SSL": False,
         "DEFAULT_PRIVATE": True,
