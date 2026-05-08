@@ -5,7 +5,7 @@ Reusable Django app for private media upload, thumbnail generation, and HLS proc
 ## Installation
 
 ```bash
-pip install git+ssh://git@github.com/<org>/django-media-service.git
+pip install git+ssh://git@github.com/dr-baka/django-media-service.git
 ```
 
 ## Setup
